@@ -1,2 +1,2 @@
-# Advanced_JAVA
-Advanced Java
+# Advanced_Enterprise_JAVA
+Advanced Enterprise Java
