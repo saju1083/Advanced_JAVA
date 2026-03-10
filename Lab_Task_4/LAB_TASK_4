@@ -1,0 +1,136 @@
+package advance_java;
+
+//Account Class
+class Account {
+
+    String accountNumber;
+    String accountHolderName;
+    double balance;
+
+    void setAccountNumber(String accountNumber){
+        this.accountNumber = accountNumber;
+    }
+
+    void setAccountHolderName(String accountHolderName){
+        this.accountHolderName = accountHolderName;
+    }
+
+    void setBalance(double balance){
+        this.balance = balance;
+    }
+
+    String getAccountNumber(){
+        return accountNumber;
+    }
+
+    String getAccountHolderName(){
+        return accountHolderName;
+    }
+
+    double getBalance(){
+        return balance;
+    }
+
+    void depositMoney(double amount){
+        balance = balance + amount;
+    }
+
+    void withdrawMoney(double amount){
+        balance = balance - amount;
+    }
+}
+
+//SavingsAccount Class
+class SavingsAccount extends Account {
+
+    double interestRate;
+
+    void setInterestRate(double interestRate){
+        this.interestRate = interestRate;
+    }
+
+    double getInterestRate(){
+        return interestRate;
+    }
+}
+
+//FixedAccount Class
+class FixedAccount extends Account {
+
+    int tenureYear;
+
+    void setTenureYear(int tenureYear){
+        this.tenureYear = tenureYear;
+    }
+
+    int getTenureYear(){
+        return tenureYear;
+    }
+}
+
+//Bank Class (Main Class)
+public class Bank {
+
+    String name;
+    SavingsAccount sa;
+    FixedAccount fa;
+
+    void setName(String name){
+        this.name = name;
+    }
+
+    void setSavingsAccount(SavingsAccount sa){
+        this.sa = sa;
+    }
+
+    void setFixedAccount(FixedAccount fa){
+        this.fa = fa;
+    }
+
+    String getName(){
+        return name;
+    }
+
+    SavingsAccount getSavingsAccount(){
+        return sa;
+    }
+
+    FixedAccount getFixedAccount(){
+        return fa;
+    }
+
+    //Main Method
+    public static void main(String[] args) {
+
+        SavingsAccount sa = new SavingsAccount();
+        sa.setAccountNumber("11111111");
+        sa.setAccountHolderName("OOP1");
+        sa.setBalance(10000);
+        sa.setInterestRate(7.5);
+
+        FixedAccount fa = new FixedAccount();
+        fa.setAccountNumber("11111112");
+        fa.setAccountHolderName("OOP1");
+        fa.setBalance(100000);
+        fa.setTenureYear(10);
+
+        Bank b = new Bank();
+        b.setName("DBBL");
+        b.setSavingsAccount(sa);
+        b.setFixedAccount(fa);
+
+        System.out.println("Bank Name: " + b.getName());
+
+        System.out.println("\nSavings Account Info:");
+        System.out.println("Account Number: " + b.getSavingsAccount().getAccountNumber());
+        System.out.println("Holder Name: " + b.getSavingsAccount().getAccountHolderName());
+        System.out.println("Balance: " + b.getSavingsAccount().getBalance());
+        System.out.println("Interest Rate: " + b.getSavingsAccount().getInterestRate());
+
+        System.out.println("\nFixed Account Info:");
+        System.out.println("Account Number: " + b.getFixedAccount().getAccountNumber());
+        System.out.println("Holder Name: " + b.getFixedAccount().getAccountHolderName());
+        System.out.println("Balance: " + b.getFixedAccount().getBalance());
+        System.out.println("Tenure Year: " + b.getFixedAccount().getTenureYear());
+    }
+}
