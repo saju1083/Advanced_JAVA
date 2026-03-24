@@ -1,0 +1,75 @@
+package Advance_Java;
+
+public class Food_Item {
+
+    // Parent Class
+    static class Food {
+        double price;
+        String name;
+
+        Food() {
+            System.out.println("Default Constructor");
+        }
+
+        Food(double price, String name) {
+            this.price = price;
+            this.name = name;
+        }
+
+        void showDetails() {
+            System.out.println("----Food Item----");
+            System.out.println("Name: " + name);
+            System.out.println("Price: " + price);
+        }
+    }
+
+    // Child Class - Burger
+    static class Burger extends Food {
+        int numberOfPatties;
+
+        Burger() {}
+
+        Burger(int numberOfPatties, double price, String name) {
+            super(price, name);
+            this.numberOfPatties = numberOfPatties;
+        }
+
+        @Override
+        void showDetails() {
+            super.showDetails();
+            System.out.println("Number of patties: " + numberOfPatties);
+        }
+    }
+
+    // Child Class - Pizza
+    static class Pizza extends Food {
+        double size;
+
+        Pizza() {}
+
+        Pizza(double size, double price, String name) {
+            super(price, name);
+            this.size = size;
+        }
+
+        @Override
+        void showDetails() {
+            super.showDetails();
+            System.out.println("Pizza Size: " + size);
+        }
+    }
+
+    // Main method
+    public static void main(String[] args) {
+
+        // Create Burger object
+        Burger b1 = new Burger(2, 200, "Chicken Burger");
+        b1.showDetails();
+
+        System.out.println();
+
+        // Create Pizza object
+        Pizza p1 = new Pizza(12, 500, "Pepperoni Pizza");
+        p1.showDetails();
+    }
+}
