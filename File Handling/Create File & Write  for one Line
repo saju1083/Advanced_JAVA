@@ -1,0 +1,3 @@
+FileWriter fw = new FileWriter ("file.txt")
+fw.Write ("Hello World);
+fw.close();
