@@ -1,0 +1,62 @@
+Question: Design a Java program to model race cars using object-oriented
+programming.
+a. Make an abstract class called RaceCar that stores each car’s model
+name and engine power. Make the engine power as a private field and
+add an abstract method called displayInfo(), which will print the car's
+details.
+b. Create two subclasses, FormulaCar and Sports Car, that extend
+RaceCar and implement the displayInfo() method to show the model
+name and engine power
+c. Create one FormulaCar and one SportsCar object with different
+model names and engine powers
+d. Call their displayInfo() method within main function to show each
+car’s details
+
+Ans:
+(a) 
+abstract class RaceCar{
+String modelName;
+private int enginePower;
+RaceCar(String modelName, int enginePower){
+this.modelName = modelName;
+this.enginePower = enginePower;
+}
+public int getEnginePower(){
+return enginePower;
+}
+abstract void displayInfo();
+}
+
+(b) 
+class FormulaCar extends RaceCar{
+FormulaCar (String modelName, int enginePower){
+super(modelName, enginePower);
+}
+void displayInfo(){
+System.out.println("Formula Car Model:"+ modelName);
+System.out.println("Engine Power:"+ getEnginePower()+"HP");
+}
+}
+class SportsCar extends RaceCar{
+SportsCar (String modelName, int enginePower){
+super(modelName, enginePower);
+}
+void displayInfo(){
+System.out.println("Sports Car Model:"+ modelName);
+System.out.println("Engine Power:"+ getEnginePower()+"HP");
+}
+}
+
+(c)
+FormulaCar f1 = new FormulaCar("Ferrari F1",1000);
+SportsCar S1 = new SportsCar("Lamborghini Aventador",750);
+
+(d)
+public class CarDemo{
+public static void main(String[]args){
+FormulaCar f1 = new FormulaCar("Ferrari F1",1000);
+SportsCar S1 = new SportsCar("Lamborghini Aventador",750);
+f1.displayInfo();
+s1.displayInfo();
+}
+}
