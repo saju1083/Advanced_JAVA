@@ -1,0 +1,17 @@
+import java.io.FileWriter;
+import java.io.IOException;
+public class FileException{
+public static void main(String[]args){
+try{
+FileWriter fw = new FileWriter("Course.txt");
+fw.write("Course Code: SE 409\n);
+fw.write("Course Name: Advanced Enterprise Java\n);
+fw.write("Section: 61A\n);
+System.out.println("File created successfully");
+}
+catch(IOException e){
+System.out.println("An error occured");
+e.printStackTrace();
+}
+}
+}
