@@ -1,0 +1,32 @@
+class sajuThread1 extends Thread{
+public void run(){
+System.out.println("Hello, i am Saju");
+}
+}
+class sajuThread2 extends Thread{
+public void run(){
+System.out.println("Hello, i am Sadia");
+}
+}
+class sajuThread3 extends Thread{
+public void run(){
+System.out.println("Hello, i am Abrar");
+}
+}
+class sajuThread4 extends Thread{
+public void run(){
+System.out.println("Hello, i am Saim");
+}
+}
+public class exampleThread{
+public static void main(String[]args){
+sajuThread1 O1 = new sajuThread1();
+sajuThread2 O2 = new sajuThread2();
+sajuThread3 O3 = new sajuThread3();
+sajuThread4 O4 = new sajuThread4();
+O1.start();
+O2.start();
+O3.start();
+O4.start();
+}
+}
