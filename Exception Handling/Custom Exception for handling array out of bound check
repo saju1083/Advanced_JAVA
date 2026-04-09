@@ -1,0 +1,24 @@
+class BoundException extends Exception{
+public BoundException (String message){
+super(message);
+}
+}
+public class ArrayCheck{
+static void checkArray(int arr[], int indes)throws BoundException{
+if (index>=arr.length || indes <0){
+throw new BoundException("Index is out of bounds");
+}
+else{
+System.out.println("Element:"+[index]);
+}
+}
+public static void main(String[]args){
+int arr[]={10,20,30,40};
+try{
+checkArray(arr, 5);
+}
+catch(BoundException e){
+System.out.println("Enter:"+ e.getMessage());
+}
+}
+}
