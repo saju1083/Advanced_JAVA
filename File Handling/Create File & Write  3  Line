@@ -1,0 +1,3 @@
+FileWriter fw = new FileWriter ("file.txt")
+fw.Write ("Line1\n Line2\ Line3);
+fw.close();
