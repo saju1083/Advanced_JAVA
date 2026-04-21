@@ -1,1 +1,38 @@
+Create an one way communication, using socket programming. 
+Server.java                           Client.java
+serverSocket                          Socket(" ",part)
+Socket                                DataOutputStream
+DataInputStream 
+
+Server,java:
+import java.io.*;
+import java.net.*;
+
+public class Server {
+    public static void main(String[] args) {
+        try {
+            // Create server socket on port 5000
+            ServerSocket serverSocket = new ServerSocket(5000);
+            System.out.println("Server is waiting...");
+
+            // Accept client connection
+            Socket socket = serverSocket.accept();
+            System.out.println("Client connected!");
+
+            // Receive data from client
+            DataInputStream dis = new DataInputStream(socket.getInputStream());
+            String message = dis.readUTF();
+
+            System.out.println("Message from Client: " + message);
+
+            // Close connections
+            dis.close();
+            socket.close();
+            serverSocket.close();
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+}
 
