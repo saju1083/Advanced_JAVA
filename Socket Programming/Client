@@ -1,0 +1,26 @@
+Client.java:
+import java.io.*;
+import java.net.*;
+
+public class Client {
+    public static void main(String[] args) {
+        try {
+            // Connect to server (same PC → localhost)
+            Socket socket = new Socket("localhost", 5000);
+
+            // Send data to server
+            DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
+            dos.writeUTF("Hello Server! This is Client.");
+
+            dos.flush();
+
+            // Close connection
+            dos.close();
+            socket.close();
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+}  
+  
